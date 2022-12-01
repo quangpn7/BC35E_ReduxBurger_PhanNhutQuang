@@ -15,7 +15,10 @@ root.render(
     <div className="bg-dark text-white px-5 mt-5">
       <span className="fst-italic">
         Checkout{" "}
-        <a href="#" target={"_blank"}>
+        <a
+          href="https://github.com/quangpn7/BC35E_ReduxBurger_PhanNhutQuang#readme"
+          target={"_blank"}
+        >
           README.md
         </a>
       </span>

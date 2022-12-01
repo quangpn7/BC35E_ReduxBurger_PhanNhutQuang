@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Burger selecting menu with REDUX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### By: quangpn7 
+##### Date: 01-Dec-2022
+---
+## Overview:
+- This repository contains a simple Burger Menu app which help you to select main inner ingredients: **Salad, Chees, Beef**.
+- The main objective of the App is to help getting more practical **`Redux`** using.
+- You can use further browser extension called **`Redux devTool`** to have a deep review of the App.
+---
+## I. Component
+**- Using Class Component**<img src="public/logo192.png" width="15px">
+  
+**1. Burger**
+   - Contains **`Burger`** (made by `CSS`)
+   - Rendered by later receiving data from **`Redux`**
 
-## Available Scripts
+**2. BurgerSelect**
+   - Contains table which has: ingredients, amount, price, total.
+   - Rendered by later receiving data from **`Redux`**
+   - Button: 
+     - **"+", "-"**:  changing the ammount by users' selects.
+     - **"Reset"** (fa5 sync icon): reset all change to default value.
+## II. Redux store:
+**- Default store:**
+```javascript
+{
+  burgerReducer: { // Main reducer
+    burger: {  // Storing ingredient selection, render,...
+      salad: 1, // All ingredients are set default at 1
+      cheese: 1,
+      beef: 1
+    },
+    menu: { // Store price of ingredients
+      salad: 10, // Changable but no need
+      cheese: 20,
+      beef: 55
+    },
+    total: 85 // Total for rendering, will be changed at any action
+  }
+}
+```
 
-In the project directory, you can run:
+## III. Connect & Action:
+#### Connect
+- **Burger.jsx**
+  - Get `{burgerReducer.burger}` to render the burger
+- **BurgerSelection**.
+  - Get `{burgerReducer.burger}` to render the name and amount at table's 1st, 2nd columns.
+  - Get `{burgerReducer.menu}` to render the price at table's 3rd column.
+  - Get `{burgerReducer.total}` to render the total pay at table's footer.
 
-### `npm start`
+#### Action
+- Type: `"CHANGE_AMOUNT"`
+  - Update the amount of specific ingredient in **`{burgerReducer.burger}`**.
+  - Update **`{burgerReducer.total}`**.
+  - Set `reset button` disabled or not by comparing current **`{burgerReducer.total}`** with `85` *(number type)*.
+- Type: `"RESET"`
+  - Revert every change to default state.
+  
+<img src="./BurgerRedux.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+# Thank for reading this repository
