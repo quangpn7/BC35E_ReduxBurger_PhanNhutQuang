@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./components/redux/configStore";
+import "./burger.css";
+import Burger from "./components/Burger/Burger";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <div className="bg-dark text-white display-5 px-5 mb-5">
+      Burger Store With Redux
+    </div>
+    <Burger />
+    <div className="bg-dark text-white px-5 mt-5">
+      <span className="fst-italic">
+        Checkout{" "}
+        <a href="#" target={"_blank"}>
+          README.md
+        </a>
+      </span>
+    </div>
+  </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
